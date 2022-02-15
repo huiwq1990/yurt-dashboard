@@ -1,0 +1,16 @@
+# Default values for yurt-dashboard.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: openyurt/yurt-dashboard
+  pullPolicy: IfNotPresent
+  tag: 0.0.6
+service:
+  type: ClusterIP
+  port: 80 
+ingress:
+  host: dashboard.yurt.local
+

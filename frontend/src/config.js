@@ -47,4 +47,4 @@ export const routes = [
   },
 ];
 
-export const baseURL = "http://139.224.236.157:80/api";
+export const baseURL = "http://dashboard.yurt.epaas.domain:80/api";

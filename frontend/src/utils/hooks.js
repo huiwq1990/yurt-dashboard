@@ -78,24 +78,24 @@ export function useUserProfile() {
       return;
     }
 
-    const lastTime = getUserLastTime(user.status.effectiveTime);
-    // if account has expired
-    if (lastTime <= 0) {
-      // show expire tips
-      message.error(
-        "对不起，您的试用账号已满7天，平台将清空账号下资源。您可以选择重新注册一个账号，继续体验OpenYurt的能力。",
-        5
-      );
-      // clear the expired user data
-      clearUserProfile();
-      // clear the user state
-      setUser(null);
-    }
-    // if the account is about to expire
-    else if (lastTime <= 3 && firstNotice) {
-      firstNotice = false; // only display this msg once
-      message.warn(`您的账户将在${lastTime}日后过期`, 5);
-    }
+    // const lastTime = getUserLastTime(user.status.effectiveTime);
+    // // if account has expired
+    // if (lastTime <= 0) {
+    //   // show expire tips
+    //   message.error(
+    //     "对不起，您的试用账号已满7天，平台将清空账号下资源。您可以选择重新注册一个账号，继续体验OpenYurt的能力。",
+    //     5
+    //   );
+    //   // clear the expired user data
+    //   clearUserProfile();
+    //   // clear the user state
+    //   setUser(null);
+    // }
+    // // if the account is about to expire
+    // else if (lastTime <= 3 && firstNotice) {
+    //   firstNotice = false; // only display this msg once
+    //   message.warn(`您的账户将在${lastTime}日后过期`, 5);
+    // }
   }, [user]);
 
   return [

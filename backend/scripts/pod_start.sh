@@ -25,7 +25,7 @@ users:
 - name: default-user
   user:
     token: ${token}
-" > kubeconfig.conf
+" > /openyurt/config/kubeconfig.conf
 
 cd /openyurt/backend/
 ./apiserver

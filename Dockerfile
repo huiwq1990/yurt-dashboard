@@ -10,7 +10,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -mod readonly -a  -o apiserve
 ##Build ui
 FROM node:14.17.6-alpine3.14 as build-ui
 
-RUN apk update && apk add bash
+#RUN apk update && apk add bash
 
 WORKDIR /workspace
 
@@ -29,6 +29,9 @@ WORKDIR /openyurt/backend/
 COPY --from=builder /workspace/config config
 COPY --from=builder /workspace/apiserver .
 COPY --from=builder /workspace/scripts/pod_start.sh pod_start.sh
+RUN chmod +x pod_start.sh
+RUN chmod +x apiserver
+
 COPY --from=build-ui /workspace/build ../../frontend/build
 
 CMD [ "sh", "-c", "./pod_start.sh"]
